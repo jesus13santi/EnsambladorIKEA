@@ -23,7 +23,7 @@ public class Ensamblador extends Thread {
         this.semTablas = semTablas;
         this.semTornillos = semTornillos;
         this.semPatas = semPata;
-//        this.semCuerpoCentral = semCuerpoCentral;
+
         this.semEscritorio = semEscritorio;
         this.dia = dia;
         this.contratado = true;
@@ -39,24 +39,22 @@ public class Ensamblador extends Thread {
                 semTablas.acquire();
                 semTornillos.acquire();
                 semPatas.acquire();
-//                semCuerpoCentral.acquire();
-                if( EnsambladorIKEA.num_tablas >= 12 && EnsambladorIKEA.num_tornillos >= 300 && EnsambladorIKEA.num_patas >= 34 ){
 
-                    EnsambladorIKEA.num_tablas -= 12;
+                if( EnsambladorIKEA.num_tablas >= 1 && EnsambladorIKEA.num_tornillos >= 40 && EnsambladorIKEA.num_patas >= 4 ){
+
+                    EnsambladorIKEA.num_tablas -= 1;
                     Interfaz.l_disp_tablas.setText( ""+EnsambladorIKEA.num_tablas );
                     semTablas.release();
 
-                    EnsambladorIKEA.num_tornillos -= 300;
+                    EnsambladorIKEA.num_tornillos -= 40;
                     Interfaz.l_disp_tornillos.setText( ""+EnsambladorIKEA.num_tornillos );
                     semTornillos.release();
 
-                    EnsambladorIKEA.num_patas -= 34;
+                    EnsambladorIKEA.num_patas -= 4;
                     Interfaz.l_disp_patas.setText( ""+EnsambladorIKEA.num_patas );
                     semPatas.release();
 
-//                    EnsambladorIKEA.num_cuerpo_central -=1;
-////                    Interfaz.l_disp_cuerpos_centrales.setText( ""+EnsambladorIKEA.num_cuerpo_central );
-//                    semCuerpoCentral.release();
+
 
                     Thread.sleep((long) (dia*1000*2));
 
@@ -71,7 +69,7 @@ public class Ensamblador extends Thread {
                     semTablas.release();
                     semTornillos.release();
                     semPatas.release();
-//                    semCuerpoCentral.release();
+
                 }
 
                 

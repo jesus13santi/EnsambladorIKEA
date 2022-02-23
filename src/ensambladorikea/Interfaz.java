@@ -733,7 +733,7 @@ public class Interfaz extends javax.swing.JFrame {
                 } else{
                     System.out.println(EnsambladorIKEA.readCSV(file));
                     System.out.println("ERROR EN EL ARCHIVO");
-                    JOptionPane.showMessageDialog(null, "Error en la lectura del archivo, verifique que:\n- Hay valores correctos en el mismo (numéricos).\n- Los productores iniciales no superan los máximos permitidos.\n- Los datos del archivo son mayores que cero.\n- Existe capacidad en el almacen para poder armar Panas.\n- Seleccionó un archivo válido.", "Error al cargar el archivo", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Error en la lectura del archivo, verifique que:\n- Hay valores correctos en el mismo (numéricos).\n- Los productores iniciales no superan los máximos permitidos.\n- Los datos del archivo son mayores que cero.\n- Existe capacidad en el almacen para poder armar Escritorios.\n- Seleccionó un archivo válido.", "Error al cargar el archivo", JOptionPane.ERROR_MESSAGE);
                     this.disableBtn(false);
                     b_comenzar.setText("COMENZAR A PRODUCIR");
                     EnsambladorIKEA.exit = true;

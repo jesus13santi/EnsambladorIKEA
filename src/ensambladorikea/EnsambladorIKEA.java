@@ -88,7 +88,7 @@ public class EnsambladorIKEA {
         num_tablas = 0;
         num_tornillos = 0;
         num_patas = 0;
-//        num_cuerpo_central = 0;
+
         num_escritorios = 0;
         num_escritorios_total = 0;
         
@@ -96,7 +96,7 @@ public class EnsambladorIKEA {
         semTablas = new Semaphore(1, true);
         semTornillos = new Semaphore(1, true);
         semPatas = new Semaphore(1, true);
-//        semCuerpoCentral = new Semaphore(1, true);
+
         semContador = new Semaphore(1, true);
         
         jefe = new Jefe(dia, despacho, semContador);
@@ -105,7 +105,7 @@ public class EnsambladorIKEA {
         prod_tablas = new ProductorTablas[max_prod_tablas];
         prod_tornillos = new ProductorTornillos[max_prod_tornillos];
         prod_patas = new ProductorPatas[max_prod_patas];
-//        prod_cuerpo_central = new ProductorCuerpoCentral[max_prod_cuerpo_central];
+
         ensambladores = new Ensamblador[max_ensambladores];
         
         jefe.start();
@@ -126,11 +126,7 @@ public class EnsambladorIKEA {
             prod_patas[i].start();
         }
         
-//        for( int i = 0; i<numProd_cuerpo_central; i++) {
-//            prod_cuerpo_central[i] = new ProductorCuerpoCentral(semCuerpoCentral, dia);
-//            prod_cuerpo_central[i].start();
-//        }
-        
+
         for(int i = 0; i<num_ensambladores; i++){
             ensambladores[i] = new Ensamblador(semTablas, semTornillos, semPatas, semEscritorio, dia);
             ensambladores[i].start();
@@ -138,7 +134,7 @@ public class EnsambladorIKEA {
         
         Interfaz.l_prod_tornillos.setText(""+numProd_tornillos);
         Interfaz.l_prod_patas.setText(""+numProd_patas);
-//        Interfaz.l_prod_cuerpo_central.setText(""+numProd_cuerpo_central);
+
         Interfaz.l_prod_tablas.setText(""+numProd_tablas);
         Interfaz.l_ensambladores.setText(""+num_ensambladores);
         
@@ -146,7 +142,7 @@ public class EnsambladorIKEA {
         Interfaz.l_disp_tornillos.setText(""+num_tornillos);
         Interfaz.l_disp_patas.setText(""+num_patas);
         Interfaz.l_disp_escritorios.setText(""+num_escritorios);
-//        Interfaz.l_disp_cuerpos_centrales.setText(""+num_cuerpo_central);
+
         Interfaz.l_disp_tablas.setText(""+num_tablas);
         Interfaz.l_total_escritorios.setText(""+num_escritorios_total);
         
@@ -174,8 +170,7 @@ public class EnsambladorIKEA {
             max_tornillos = Integer.parseInt(tmp);
             tmp = load.next();
             max_patas = Integer.parseInt(tmp);
-//            tmp = load.next();
-//            max_cuerpo_central = Integer.parseInt(tmp);
+
             
             tmp = load.next();
             numProd_tablas = Integer.parseInt(tmp);
@@ -183,8 +178,7 @@ public class EnsambladorIKEA {
             numProd_tornillos = Integer.parseInt(tmp);
             tmp = load.next();
             numProd_patas = Integer.parseInt(tmp);
-//            tmp = load.next();
-//            numProd_cuerpo_central = Integer.parseInt(tmp);
+
             
             tmp = load.next();
             max_prod_tablas = Integer.parseInt(tmp);
@@ -192,15 +186,14 @@ public class EnsambladorIKEA {
             max_prod_tornillos = Integer.parseInt(tmp);
             tmp = load.next();
             max_prod_patas = Integer.parseInt(tmp);
-//            tmp = load.next();
-//            max_prod_cuerpo_central = Integer.parseInt(tmp);
+
             
             tmp = load.next();
             num_ensambladores = Integer.parseInt(tmp);
             tmp = load.next();
             max_ensambladores = Integer.parseInt(tmp);
             
-            //MODIFICAR AQUI OJOOOOOO
+
             
             return !(numProd_tablas > max_prod_tablas || numProd_tornillos > max_prod_tornillos || numProd_patas > max_prod_patas ||  num_ensambladores > max_ensambladores || max_prod_tablas < 1 || max_prod_tornillos < 1 || max_prod_patas < 1 ||  max_ensambladores < 1 || numProd_tablas < 1 || numProd_tornillos < 1 || numProd_patas < 1 || num_ensambladores < 1 || dia < 1 || despacho < 1 || max_tornillos < 40 || max_patas < 4 || max_tablas < 1 );
             

@@ -29,7 +29,7 @@ public class Gerente extends Thread {
                 semContador.acquire();
                 estado = "Revisando";
                 Interfaz.l_estado_gerente.setText(estado);
-                Thread.sleep((long) (1000*dia/6));
+                Thread.sleep((long) (1000*dia*2/3));
                 if(Jefe.contador == 0){
                     
                     Jefe.contador = EnsambladorIKEA.despacho;
@@ -37,6 +37,7 @@ public class Gerente extends Thread {
                     Interfaz.l_estado_gerente.setText(estado);
                     EnsambladorIKEA.desplegar();
                     Interfaz.l_disp_escritorios.setText( ""+EnsambladorIKEA.num_escritorios );
+                    System.out.println("PRUEBA" + EnsambladorIKEA.num_escritorios);
                 }
                 semContador.release();
                 
