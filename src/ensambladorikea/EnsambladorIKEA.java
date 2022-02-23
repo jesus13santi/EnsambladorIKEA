@@ -16,19 +16,19 @@ public class EnsambladorIKEA {
     public static int max_tablas;
     public static int max_tornillos;
     public static int max_patas;
-//    public static int max_cuerpo_central;
+
     
     // Numero de Productores por Pieza Iniciales
     public static volatile int numProd_tablas;
     public static volatile int numProd_tornillos;
     public static volatile int numProd_patas;
-//    public static volatile int numProd_cuerpo_central;
+
     
     // Maximo de Productores por pieza
     public static int max_prod_tablas;
     public static int max_prod_tornillos;
     public static int max_prod_patas;
-//    public static int max_prod_cuerpo_central;
+
     
     // Maximo de Ensambladores
     public static volatile int max_ensambladores;
@@ -40,14 +40,14 @@ public class EnsambladorIKEA {
     public static volatile int num_tablas;
     public static volatile int num_tornillos;
     public static volatile int num_patas;
-//    public static volatile int num_cuerpo_central;
+
     public static volatile int num_escritorios;
     public static volatile int num_escritorios_total;
     
     // Arrays de Productores y Ensambladores
     public static volatile ProductorTablas[] prod_tablas;
     public static volatile ProductorTornillos[] prod_tornillos;
-//    public static volatile ProductorCuerpoCentral[] prod_cuerpo_central;
+
     public static volatile ProductorPatas[] prod_patas;
     public static volatile Ensamblador[] ensambladores;
     
@@ -60,7 +60,7 @@ public class EnsambladorIKEA {
     public static Semaphore semEscritorio;
     public static Semaphore semTablas;
     public static Semaphore semTornillos;
-//    public static Semaphore semCuerpoCentral;
+
     public static Semaphore semPatas;
     
     public static void main(String[] args) {
